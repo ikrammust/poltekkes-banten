@@ -33,7 +33,7 @@ class Auth extends CI_Controller {
             
             if($user) {
        
-                if($user['status'] == 1 && http()->login == TRUE) {
+                if($user['status'] == 1) {
                     
                     if(password_verify($password,  $user['password'])  ) {
         
