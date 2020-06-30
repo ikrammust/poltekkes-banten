@@ -57,13 +57,13 @@
               <li class="nav-item">
                 <a href="<?= base_url('mhs') ?>" class="nav-link <?php if($this->uri->segment(1)== "mhs" ){echo "active";} ?>">
                 <i class="fas fa-user-tie"></i>
-                  <p>Dosen</p>
+                  <p>Lecturer</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="<?= base_url('dsn') ?>" class="nav-link <?php if($this->uri->segment(1)== "dsn" ){echo "active";} ?>">
                 <i class="fas fa-user-graduate"></i>
-                  <p>Mahasiswa</p>
+                  <p>Student</p>
                 </a>
               </li>
             </ul>

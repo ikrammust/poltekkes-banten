@@ -48,8 +48,8 @@
             <select class="form-control" id="role_id" name="role_id">
             <option value="">Choose...</option>
             <option <?php if($u['role_id'] == 1) echo "selected" ?> value="1">Admin</option>
-            <option <?php if($u['role_id'] == 2) echo "selected" ?> value="2">Dosen</option>
-            <option <?php if($u['role_id'] == 3) echo "selected" ?> value="3">Mahasiswa</option>
+            <option <?php if($u['role_id'] == 2) echo "selected" ?> value="2">Lecturer</option>
+            <option <?php if($u['role_id'] == 3) echo "selected" ?> value="3">Student</option>
             </select>
         </div>
 
@@ -61,24 +61,24 @@
         </div>
         <select class="custom-select" id="status" name="status">
             <option value="">Choose..</option>
-            <option <?php if($u['status'] == 0) echo "selected" ?> value="0">Tidak Aktif</option>
-            <option <?php if($u['status'] == 1) echo "selected" ?> value="1">Aktif</option>
+            <option <?php if($u['status'] == 0) echo "selected" ?> value="0">Not yet</option>
+            <option <?php if($u['status'] == 1) echo "selected" ?> value="1">Active</option>
         </select>
         </div>
 
         <div class="input-group mb-3">
         <div class="input-group-prepend">
-            <label class="input-group-text" for="pilihan">Izinkan Menilai</label>
+            <label class="input-group-text" for="pilihan">Allow Vote</label>
         </div>
         <select class="custom-select" id="pilihan" name="pilihan">
             <option value="">Choose..</option>
-            <option <?php if($u['pilihan'] == 1) echo "selected" ?> value="1">Ya</option>
-            <option <?php if($u['pilihan'] == 0) echo "selected" ?> value="0">Tidak</option>
+            <option <?php if($u['pilihan'] == 1) echo "selected" ?> value="1">Off Course!</option>
+            <option <?php if($u['pilihan'] == 0) echo "selected" ?> value="0">Never.</option>
         </select>
         </div>
 
         <div class="form-group">
-            <label for="nip">NIP / NIM</label>
+            <label for="nip">NIP</label>
             <input class="form-control <?php echo form_error('nip') ? 'is-invalid':'' ?>"
             type="text" name="nip" placeholder="NIP / NIM" value="<?php echo $u['nip'] ?>"/>
             <div class="invalid-feedback">
@@ -90,7 +90,7 @@
         <input type="hidden" name="id2" value="<?= $nanu['id'] ?>">
 
         <div class="form-group">
-            <label for="nama">Nama</label>
+            <label for="nama">Name</label>
             <input class="form-control <?php echo form_error('nama') ? 'is-invalid':'' ?>"
                 type="text" name="nama" placeholder="Nama Lengkap" value="<?php echo $u['nama'] ?>"/>
             <div class="invalid-feedback">
@@ -103,7 +103,7 @@
         <input type="hidden" name="masuk" value="">
 
         <div class="form-group">
-            <label for="telp">No. Telepon</label>
+            <label for="telp">Phone Number</label>
             <input class="form-control <?php echo form_error('telp') ? 'is-invalid':'' ?>" 
                 type="text" name="telp" autocomplete="off" placeholder="No. Telepon" value="<?= $nanu['telp'] ?>">
             <div class="invalid-feedback">
@@ -112,7 +112,7 @@
         </div>
 
         <div class="form-group">
-            <label for="alamat">Alamat</label>
+            <label for="alamat">Home Adress</label>
             <input class="form-control <?php echo form_error('alamat') ? 'is-invalid':'' ?>"
                 type="text-area" name="alamat" placeholder="Alamat Rumah" value="<?= $nanu['alamat'] ?>" />
             <div class="invalid-feedback">

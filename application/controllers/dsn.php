@@ -16,7 +16,7 @@ class dsn extends CI_Controller {
 
         if($this->session->has_userdata('nip')) {
             $data['dada'] = $this->rmhs->get_data();
-            $data['title'] = "Mahasiswa";
+            $data['title'] = "Student Data";
             $this->load->view('auth/dsn3', $data);
         }
     }
@@ -32,24 +32,24 @@ class dsn extends CI_Controller {
 
 
         $this->form_validation->set_rules('nip', 'NIP', 'required|trim|is_unique[dosen.nip]', [
-            'required' => "NIP harus di isi",
-            'is_unique' => "NIP sudah digunakan!"
+            'required' => "NIP must be filled in",
+            'is_unique' => "NIP is already in use!"
         ]);
 
         $this->form_validation->set_rules('nama', 'NAMA', 'required', [
-            'required' => "Kamu ga punya nama?",
+            'required' => "You don't have a name?",
         ]);
 
         $this->form_validation->set_rules('password', 'PASSWORD', 'required|trim', [
-            'required' => "Password harus di isi",
+            'required' => "The password must be filled in",
         ]);
 
         $this->form_validation->set_rules('jurusan', 'JURUSAN', 'required', [
-            'required' => "Field Wajib di isi"
+            'required' => "Fields required"
         ]);
 
         $this->form_validation->set_rules('masuk', 'MASUK', 'required', [
-            'required' => "Field Wajib di isi"
+            'required' => "Fields required"
         ]);
 
         $this->form_validation->set_rules('role_id', 'ROLE_ID', 'required', [
@@ -59,7 +59,7 @@ class dsn extends CI_Controller {
         
         if($this->form_validation->run() == false) {
     
-            $data['title'] = "Mahasiswa";
+            $data['title'] = "Create User";
             $this->load->view('templates/header', $data);
             $this->load->view('templates/sidebar', $data);
             $this->load->view('admin/addmhs', $data);
@@ -106,7 +106,7 @@ class dsn extends CI_Controller {
             
             $this->db->insert('dosen', $data);
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
-                Selamat, ada mahasiswa baru!
+                Congratulations, there are new students!
                 </div>');
             redirect('dsn');
             }
@@ -118,7 +118,7 @@ class dsn extends CI_Controller {
         
         if ($this->rmhs->delete($id)) {
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
-            Data Berhasil Di Hapus!
+            Data Successfully Erased!
             </div>');
             redirect(site_url('dsn'));
         }
@@ -132,7 +132,7 @@ class dsn extends CI_Controller {
         $where = array('id' => $id);
         $data['user'] = $this->rmhs->edit_data($where,'dosen')->result_array();
 
-        $data['title'] = "Mahasiswa";
+        $data['title'] = "Edit Data";
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('admin/editmhs', $data);
@@ -198,7 +198,7 @@ class dsn extends CI_Controller {
 
         $this->rmhs->update_data($where,$data,'dosen');
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
-        Data Berhasil Di Ubah!
+        Data Successfully Changed!
         </div>');
         redirect('dsn');
     }

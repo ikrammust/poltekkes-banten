@@ -21,7 +21,7 @@
           <a href="<?php echo site_url('mhs') ?>" class="btn btn-danger"><i class="fas fa-arrow-left"></i> Back</a>
           </div>
           <div class="col offset-3">
-            <h3 class="ml-5">Tambah User</h3>
+            <h3 class="ml-5">Create New User</h3>
           </div>
           </div>
           </div>
@@ -42,7 +42,7 @@
             <div class="form-group">
             <label for="role_id">Role</label>
             <select class="form-control" id="role_id" name="role_id">
-                <option value="2">Dosen</option>
+                <option value="2">Lecturer</option>
             </select>
             </div>
 
@@ -53,19 +53,19 @@
                 </div>
                 <select class="custom-select" id="status" name="status">
                     <option selected>Choose...</option>
-                    <option value="1">Aktif</option>
-                    <option value="0">Tidak</option>
+                    <option value="1">Active</option>
+                    <option value="0">Not yet</option>
                 </select>
             </div>
 
             <div class="input-group mb-3">
             <div class="input-group-prepend">
-                <label class="input-group-text" for="pilihan">Izinkan Menilai</label>
+                <label class="input-group-text" for="pilihan">Allow Vote</label>
             </div>
             <select class="custom-select" id="pilihan" name="pilihan">
                 <option selected>Choose...</option>
-                <option value="1">Ya</option>
-                <option value="0">Tidak</option>
+                <option value="1">Off Course!</option>
+                <option value="0">Never.</option>
             </select>
             </div>  
             </thead>
@@ -74,16 +74,16 @@
                 <div class="form-group">
                     <label for="nip">NIP</label>
                     <input class="form-control <?php echo form_error('nip') ? 'is-invalid':'' ?>"
-                    type="text" autocomplete="off" name="nip" placeholder="Masukkan NIP" />
+                    type="text" autocomplete="off" name="nip" placeholder="Insert your NIP" />
                     <div class="invalid-feedback">
                         <?= form_error('nip') ?>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="nama">Nama</label>
+                    <label for="nama">Name</label>
                     <input class="form-control <?php echo form_error('nama') ? 'is-invalid':'' ?>"
-                        type="text" autocomplete="off" name="nama" placeholder="Nama Lengkap" />
+                        type="text" autocomplete="off" name="nama" placeholder="Your Name is.." />
                     <div class="invalid-feedback">
                         <?php echo form_error('nama') ?>
                     </div>
@@ -93,7 +93,7 @@
                 <div class="form-group">
                     <label for="password">Password</label>
                     <input class="form-control <?php echo form_error('password') ? 'is-invalid':'' ?>"
-                    type="password" name="password" placeholder="Password" />
+                    type="password" name="password" placeholder="Don't tell anyone your Password!" />
                     <div class="invalid-feedback">
                         <?php echo form_error('password') ?>
                     </div>
@@ -104,18 +104,18 @@
                 <input type="hidden" name="masuk" value="">
 
                 <div class="form-group">
-                    <label for="telp">No. Telepon</label>
+                    <label for="telp">Phone Number</label>
                     <input class="form-control <?php echo form_error('telp') ? 'is-invalid':'' ?>" 
-                      type="text" name="telp" autocomplete="off" placeholder="No. Telepon">
+                      type="text" name="telp" autocomplete="off" placeholder="Your Phone Number is...">
                     <div class="invalid-feedback">
                       <?php echo form_error('telp') ?>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="alamat">Alamat</label>
+                    <label for="alamat">Home Adress</label>
                     <input class="form-control <?php echo form_error('alamat') ? 'is-invalid':'' ?>"
-                        type="text-area" name="alamat" placeholder="Alamat Rumah" />
+                        type="text-area" name="alamat" placeholder="Your Home Adress is..." />
                     <div class="invalid-feedback">
                         <?php echo form_error('alamat') ?>
                     </div>
@@ -124,7 +124,7 @@
                 <div class="form-group">
                     <label for="info">About Me</label>
                     <input class="form-control <?php echo form_error('info') ? 'is-invalid':'' ?>"
-                        type="text" name="info" placeholder="Ceritakan tentang Dirimu" />
+                        type="text" name="info" placeholder="Tell me about yourself" />
                     <div class="invalid-feedback">
                         <?php echo form_error('info') ?>
                     </div>

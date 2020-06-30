@@ -14,6 +14,12 @@
   <link rel="stylesheet" href="<?= base_url('assets/'); ?>plugins/jqvmap/jqvmap.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?= base_url('assets/'); ?>dist/css/adminlte.min.css">
+  <!-- DataTables -->
+  <script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.20/r-2.2.3/datatables.min.css"/>   
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
@@ -111,13 +117,13 @@
             <li class="nav-item">
               <a href="<?= base_url('mhs') ?>" class="nav-link <?php if($this->uri->segment(1)== "mhs" ){echo "active";} ?>">
               <i class="fas fa-user-tie"></i>
-                <p>Dosen</p>
+                <p>Lecturer</p>
               </a>
             </li>
             <li class="nav-item">
               <a href="<?= base_url('dsn') ?>" class="nav-link <?php if($this->uri->segment(1)== "dsn" ){echo "active";} ?>">
               <i class="fas fa-user-graduate"></i>
-                <p>Mahasiswa</p>
+                <p>Student</p>
               </a>
             </li>
           </ul>
@@ -233,7 +239,7 @@
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-sm-6">
-        <h1>Dosen Terfavorit</h1>
+        <h1>Favorite Lecturer</h1>
       </div>
     </div>
   </div>
@@ -263,7 +269,7 @@
         <?php $no = 1 ?>
         <?php $arrrr = array() ?>
         <?php foreach ($sum as $zzz) : ?>
-        <?php array_push($arrrr, array("image" => $zzz['image'], "info" => $zzz['info'], "nipdsn" => $zzz['nipdsn'], "nama" => $zzz['nama'], "nn" =>  round($zzz['n1']/max($n1)*0.3, 2)+
+        <?php array_push($arrrr, array("nipdsn" => $zzz['nipdsn'], "nama" => $zzz['nama'], "n1" => $zzz['n1'], "n2" => $zzz['n2'], "n3" => $zzz['n3'], "n4" => $zzz['n4'], "n5" => $zzz['n5'], "image" => $zzz['image'], "info" => $zzz['info'], "nn" =>  round($zzz['n1']/max($n1)*0.3, 2)+
                                                                                                     round(min($n2)/$zzz['n2']*0.25, 2)+
                                                                                                     round($zzz['n3']/max($n3)*0.2, 2)+
                                                                                                     round(min($n4)/$zzz['n4']*0.15, 2)+
@@ -275,7 +281,6 @@
             return $b['nn'] <=> $a['nn'];
         });?>
 
-        
         
             <!-- Dosen Favorit -->
             <div class="card-deck">
@@ -297,7 +302,7 @@
             </div>
             <div class="card">
                 <div class="text-center mt-1 mb-1"><img style="width:10%" src="<?= base_url('assets/dist/img/nomer3.png') ?>" alt="number 3"></div>
-                <img src="<?php if(empty($arrrr['2']['image'])) echo base_url('assets/dist/img/user2.jpg'); else echo base_url('assets/dist/img/').$arrrr['1']['image'] ?>" class="card-img-top" alt="...">
+                <img src="<?php if(empty($arrrr['2']['image'])) echo base_url('assets/dist/img/user2.jpg'); else echo base_url('assets/dist/img/').$arrrr['2']['image'] ?>" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h4 class="card-title"><?php if(empty($arrrr['2']['nama'])) echo "Admin Poltekkes Banten"; else echo $arrrr['2']['nama'] ?></h4>
                     <p class="card-text"><small class="text-muted"><?php if(empty($arrrr['2']['nipdsn'])) echo "123456789"; else echo $arrrr['2']['nipdsn'] ?></small></p>
@@ -338,7 +343,7 @@
         <!-- Dosen Ter -->
         <div class="card-group mt-5">
             <div class="card col">
-                <div class="text-center mt-1 mb-1"><h5>Dosen Ter-Update</h5></div>
+                <div class="text-center mt-1 mb-1"><h5>The Most Updated Lecturer</h5></div>
                 <img src="<?php if(empty($nn1['0']['image'])) echo base_url('assets/dist/img/user2.jpg'); else echo base_url('assets/dist/img/').$nn1['0']['image'] ?>" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title"><?php if(empty($nn1['0']['nama'])) echo "Admin Poltekkes Banten"; else echo $nn1['0']['nama'] ?></h5>
@@ -346,7 +351,7 @@
                 </div>
             </div>
             <div class="card col">
-                <div class="text-center mt-1 mb-1"><h5>Dosen Ter-Disiplin</h5></div>
+                <div class="text-center mt-1 mb-1"><h5>The Most Disciplined Lecturer</h5></div>
                 <img src="<?php if(empty($nn2['0']['image'])) echo base_url('assets/dist/img/user2.jpg'); else echo base_url('assets/dist/img/').$nn2['0']['image'] ?>" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title"><?php if(empty($nn2['0']['nama'])) echo "Admin Poltekkes Banten"; else echo $nn2['0']['nama'] ?></h5>
@@ -354,7 +359,7 @@
                 </div>
             </div>
             <div class="card col">
-                <div class="text-center mt-1 mb-1"><h5>Dosen Ter-Asik</h5></div>
+                <div class="text-center mt-1 mb-1"><h5>The Most Cool Lecturer</h5></div>
                 <img src="<?php if(empty($nn3['0']['image'])) echo base_url('assets/dist/img/user2.jpg'); else echo base_url('assets/dist/img/').$nn3['0']['image'] ?>" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title"><?php if(empty($nn3['0']['nama'])) echo "Admin Poltekkes Banten"; else echo $nn3['0']['nama'] ?></h5>
@@ -362,7 +367,7 @@
                 </div>
             </div>
             <div class="card col">
-                <div class="text-center mt-1 mb-1"><h5>Dosen Ter-Bijak</h5></div>
+                <div class="text-center mt-1 mb-1"><h5>The Wisest lecturer</h5></div>
                 <img src="<?php if(empty($nn4['0']['image'])) echo base_url('assets/dist/img/user2.jpg'); else echo base_url('assets/dist/img/').$nn4['0']['image'] ?>" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title"><?php if(empty($nn4['0']['nama'])) echo "Admin Poltekkes Banten"; else echo $nn4['0']['nama'] ?></h5>
@@ -370,7 +375,7 @@
                 </div>
             </div>
             <div class="card col">
-                <div class="text-center mt-1 mb-1"><h5>Dosen Ter-Kreatif</h5></div>
+                <div class="text-center mt-1 mb-1"><h5>The Most Creative Lecturer</h5></div>
                 <img src="<?php if(empty($nn5['0']['image'])) echo base_url('assets/dist/img/user2.jpg'); else echo base_url('assets/dist/img/').$nn5['0']['image'] ?>" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title"><?php if(empty($nn5['0']['nama'])) echo "Admin Poltekkes Banten"; else echo $nn5['0']['nama'] ?></h5>
@@ -378,7 +383,61 @@
                 </div>
             </div>
             </div>
+
+
+            <div class="card-body">
+      <div class="card-header">
+        <h3>Value Data</h3>
       </div>
+        <table id="user_data" class="table table-bordered table-hover">
+          <thead>
+            <tr>
+                <th scope="col" class="text-center">Ranking</th>
+                <th scope="col">Name</th>
+                <th scope="col" class="text-center">NIP</th>
+                <th scope="col" class="text-center">Criteria 1</th>
+                <th scope="col" class="text-center">Criteria 2</th>
+                <th scope="col" class="text-center">Criteria 3</th>
+                <th scope="col" class="text-center">Criteria 4</th>
+                <th scope="col" class="text-center">Criteria 5</th>
+                <th scope="col" class="text-center">Sum of All Criteria</th>
+            </tr>
+          </thead>
+          <tbody>
+          <?php $no = 1; ?>
+          <?php foreach ($arrrr as $row) : ?>
+            <tr>
+                <th scope="row" class="text-center"><?= $no++ ?></th>
+                <th class="font-weight-normal"><?= $row['nama'] ?></th>
+                <td class="text-center"><?= $row['nipdsn'] ?></td>
+                <td class="text-center"><?= $row['n1'] ?></td>
+                <td class="text-center"><?= $row['n2'] ?></td>
+                <td class="text-center"><?= $row['n3'] ?></td>
+                <td class="text-center"><?= $row['n4'] ?></td>
+                <td class="text-center"><?= $row['n5'] ?></td>
+                <td class="text-center"><?= $row['nn'] ?></td>
+          <?php endforeach ?>
+            </tr>
+          </tbody>  
+        </table>
+        <script>
+
+          $(document).ready(function(){
+              $('#user_data').DataTable();
+          });
+
+        </script>
+      </div>
+
+
+
+
+      </div>
+
+
+    
+      
+       
     </div>
 </section>
       
@@ -395,6 +454,9 @@
 <script src="<?= base_url('assets/'); ?>plugins/jquery/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
 <script src="<?= base_url('assets/'); ?>plugins/jquery-ui/jquery-ui.min.js"></script>
+<!-- DataTables -->
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.20/r-2.2.3/datatables.min.js"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
   $.widget.bridge('uibutton', $.ui.button);

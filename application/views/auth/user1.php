@@ -46,8 +46,8 @@
           <span class="info-box-icon"><i class="fas fa-user-tie"></i></span>
 
           <div class="info-box-content">
-            <span class="info-box-text">Total Dosen</span>
-            <span class="info-box-number"><?= count($querydosen) ?> Orang </span>
+            <span class="info-box-text">Total Lecturers</span>
+            <span class="info-box-number"><?= count($querydosen) ?> Persons </span>
 
             <div class="progress">
               <div class="progress-bar" style="width: <?= round(count($querydosen)/count($query)*100) ?>%"></div>
@@ -66,8 +66,8 @@
           <span class="info-box-icon"><i class="fas fa-user-graduate"></i></span>
 
           <div class="info-box-content">
-            <span class="info-box-text">Total Mahasiswa</span>
-            <span class="info-box-number"><?= count($querymhs) ?> Orang</span>
+            <span class="info-box-text">Total Students</span>
+            <span class="info-box-number"><?= count($querymhs) ?> Persons</span>
 
             <div class="progress">
               <div class="progress-bar" style="width: <?= round(count($querymhs)/count($query)*100) ?>%"></div>
@@ -86,8 +86,8 @@
           <span class="info-box-icon"><i class="fas fa-tasks"></i></span>
 
           <div class="info-box-content">
-            <span class="info-box-text">Jumlah Pemilih</span>
-            <span class="info-box-number"><?= count($querypemilih) ?> Orang </span>
+            <span class="info-box-text">Number of Voters</span>
+            <span class="info-box-number"><?= count($querypemilih) ?> Persons </span>
 
             <div class="progress">
               <div class="progress-bar" style="width: <?= round(count($querypemilih)/count($query)*100) ?>%"></div>

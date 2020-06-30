@@ -44,27 +44,27 @@
 
 				<form class="login100-form validate-form" method="post" action="<?= base_url('auth/regist') ?>" enctype="multipart/form-data">
 					<div class="wrap-input100 validate-input m-b-26" data-validate="You don't have name?">
-						<span class="label-input100">Nama</span>
-						<input class="input100" autocomplete="off" type="text" name="nama" placeholder="Siapa Namamu" value="<?= set_value('nama'); ?>">
+						<span class="label-input100">Name</span>
+						<input class="input100" autocomplete="off" type="text" name="nama" placeholder="Your Name is..." value="<?= set_value('nama'); ?>">
 						<span class="focus-input100"></span>
 					</div>
 
 					<div class="wrap-input100 validate-input m-b-26" data-validate="NIM is required">
 						<span class="label-input100">NIM</span>
-						<input class="input100" autocomplete="off" type="text" name="nip" placeholder="Masukkan NIM" value="<?= set_value('nip'); ?>">
+						<input class="input100" autocomplete="off" type="text" name="nip" placeholder="Your NIM is..." value="<?= set_value('nip'); ?>">
 						<span class="focus-input100"></span>
 					</div>
 					<?= form_error('nip', '<small class="text-danger">', '</small>'); ?>
 
 					<div class="wrap-input100 validate-input m-b-18" data-validate = "Password is required">
 						<span class="label-input100">Password</span>
-						<input class="input100" type="password" name="password" placeholder="Password">
+						<input class="input100" type="password" name="password" placeholder="Don't tell anyone your Password">
 						<span class="focus-input100"></span>
                     </div>
 					<?= form_error('password', '<small class="text-danger">', '</small>'); ?>
 
                     <div class="wrap-input100 validate-input m-b-26" data-validate="This field can't be empty">
-                        <label class="label-input100" for="tingkat">Tingkat</label>
+                        <label class="label-input100" for="tingkat">Degree</label>
                     <select class="input100 mt-2" id="tingkat" name="tingkat">
                         <option>Choose...</option>
                         <option value="D3">D3</option>
@@ -73,14 +73,14 @@
                     </div> 
 
                     <div class="wrap-input100 validate-input m-b-26" data-validate="This field can't be empty">
-						<span class="label-input100">Jurusan</span>
-						<input class="input100" autocomplete="off" type="text" name="jurusan" placeholder="Jurusanmu" value="<?= set_value('jurusan'); ?>">
+						<span class="label-input100">Majors</span>
+						<input class="input100" autocomplete="off" type="text" name="jurusan" placeholder="Your Majors is..." value="<?= set_value('jurusan'); ?>">
 						<span class="focus-input100"></span>
 					</div>
 
                     <div class="wrap-input100 validate-input m-b-26" data-validate="This field can't be empty">
-						<span class="label-input100">Angkatan</span>
-						<input class="input100" autocomplete="off" type="text" name="masuk" placeholder="Tahun Masuk" value="<?= set_value('masuk'); ?>">
+						<span class="label-input100">Batch of</span>
+						<input class="input100" autocomplete="off" type="text" name="masuk" placeholder="Batch of..." value="<?= set_value('masuk'); ?>">
 						<span class="focus-input100"></span>
 					</div>
 

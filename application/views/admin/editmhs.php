@@ -48,8 +48,8 @@
             <select class="form-control" id="role_id" name="role_id">
             <option value="">Choose..</option>
             <option <?php if($u['role_id'] == 1) echo "selected" ?> value="1">Admin</option>
-            <option <?php if($u['role_id'] == 2) echo "selected" ?> value="2">Dosen</option>
-            <option <?php if($u['role_id'] == 3) echo "selected" ?> value="3">Mahasiswa</option>
+            <option <?php if($u['role_id'] == 2) echo "selected" ?> value="2">Lecturer</option>
+            <option <?php if($u['role_id'] == 3) echo "selected" ?> value="3">Student</option>
             </select>
         </div>
 
@@ -61,26 +61,26 @@
         </div>
         <select class="custom-select" id="status" name="status">
             <option value="">Choose..</option>
-            <option <?php if($u['status'] == 0) echo "selected" ?> value="0">Tidak Aktif</option>
-            <option <?php if($u['status'] == 1) echo "selected" ?> value="1">Aktif</option>
+            <option <?php if($u['status'] == 0) echo "selected" ?> value="0">Not yet</option>
+            <option <?php if($u['status'] == 1) echo "selected" ?> value="1">Active</option>
         </select>
         </div>
 
         <div class="input-group mb-3">
         <div class="input-group-prepend">
-            <label class="input-group-text" for="pilihan">Izinkan Menilai</label>
+            <label class="input-group-text" for="pilihan">Allow Vote</label>
         </div>
         <select class="custom-select" id="pilihan" name="pilihan">
             <option value="">Choose..</option>
-            <option <?php if($u['pilihan'] == 0) echo "selected" ?> value="0">Tidak</option>
-            <option <?php if($u['pilihan'] == 1) echo "selected" ?> value="1">Ya</option>
+            <option <?php if($u['pilihan'] == 0) echo "selected" ?> value="0">Never.</option>
+            <option <?php if($u['pilihan'] == 1) echo "selected" ?> value="1">Off Course!</option>
         </select>
         </div>
 
         <div class="form-group">
-            <label for="nip">NIP / NIM</label>
+            <label for="nip">NIM</label>
             <input class="form-control <?php echo form_error('nip') ? 'is-invalid':'' ?>"
-            type="text" name="nip" placeholder="NIP / NIM" value="<?php echo $u['nip'] ?>"/>
+            type="text" name="nip" placeholder="Your NIM is.." value="<?php echo $u['nip'] ?>"/>
             <div class="invalid-feedback">
                 <?php echo form_error('NIP') ?>
             </div>
@@ -89,16 +89,16 @@
         <input type="hidden" name="id" value="<?php echo $u['id']?>" />
 
         <div class="form-group">
-            <label for="nama">Nama</label>
+            <label for="nama">Name</label>
             <input class="form-control <?php echo form_error('nama') ? 'is-invalid':'' ?>"
-                type="text" name="nama" placeholder="Nama Lengkap" value="<?php echo $u['nama'] ?>"/>
+                type="text" name="nama" placeholder="Your Name is..." value="<?php echo $u['nama'] ?>"/>
             <div class="invalid-feedback">
                 <?php echo form_error('nama') ?>
             </div>
         </div>
 
         <div class="form-group mt-3">
-        <label for="tingkat">Tingkat</label>
+        <label for="tingkat">Degree</label>
             <select class="form-control" id="tingkat" name="tingkat">
                 <option value="">Choose..</option>
                 <option <?php if($u['tingkat'] === "D3") echo "selected" ?> value="D3">D3</option>
@@ -107,18 +107,18 @@
         </div>
 
         <div class="form-group">
-            <label for="jurusan">Jurusan</label>
+            <label for="jurusan">Majors</label>
             <input class="form-control <?php echo form_error('jurusan') ? 'is-invalid':'' ?>"
-                type="text" name="jurusan" placeholder="Jurusan" value="<?php echo $u['jurusan'] ?>"/>
+                type="text" name="jurusan" placeholder="Your Majors is..." value="<?php echo $u['jurusan'] ?>"/>
             <div class="invalid-feedback">
                 <?php echo form_error('jurusan') ?>
             </div>
         </div>
 
         <div class="form-group">
-            <label for="masuk">Tahun Masuk</label>
+            <label for="masuk">Batch of</label>
             <input class="form-control <?php echo form_error('masuk') ? 'is-invalid':'' ?>"
-                type="text" name="masuk" placeholder="Tahun Masuk" value="<?php echo $u['masuk'] ?>"/>
+                type="text" name="masuk" placeholder="Batch of..." value="<?php echo $u['masuk'] ?>"/>
             <div class="invalid-feedback">
                 <?php echo form_error('masuk') ?>
             </div>

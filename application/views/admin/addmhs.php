@@ -21,7 +21,7 @@
           <a href="<?php echo site_url('dsn') ?>" class="btn btn-danger"><i class="fas fa-arrow-left"></i> Back</a>
           </div>
           <div class="col offset-3">
-            <h3 class="ml-5">Tambah User</h3>
+            <h3 class="ml-5">Create New User</h3>
           </div>
           </div>
           </div>
@@ -42,7 +42,7 @@
             <div class="form-group">
             <label for="role_id">Role</label>
             <select class="form-control" id="role_id" name="role_id">
-                <option value="3">Mahasiswa</option>
+                <option value="3">Student</option>
             </select>
             </div>
 
@@ -53,37 +53,37 @@
                 </div>
                 <select class="custom-select" id="status" name="status">
                     <option selected>Choose...</option>
-                    <option value="1">Aktif</option>
-                    <option value="0">Tidak</option>
+                    <option value="1">Active</option>
+                    <option value="0">Not yet</option>
                 </select>
             </div>
 
             <div class="input-group mb-3">
             <div class="input-group-prepend">
-                <label class="input-group-text" for="pilihan">Izinkan Menilai</label>
+                <label class="input-group-text" for="pilihan">Allow Vote</label>
             </div>
             <select class="custom-select" id="pilihan" name="pilihan">
                 <option selected>Choose...</option>
-                <option value="1">Ya</option>
-                <option value="0">Tidak</option>
+                <option value="1">Off Course!</option>
+                <option value="0">Never.</option>
             </select>
             </div>  
             </thead>
 
               <tbody>
                 <div class="form-group">
-                    <label for="nip">NIP / NIM</label>
+                    <label for="nip">NIM</label>
                     <input class="form-control <?php echo form_error('nip') ? 'is-invalid':'' ?>"
-                    type="text" autocomplete="off" name="nip" placeholder="NIP / NIM" />
+                    type="text" autocomplete="off" name="nip" placeholder="Your NIM is..." />
                     <div class="invalid-feedback">
                         <?php echo form_error('nip') ?>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="nama">Nama</label>
+                    <label for="nama">Name</label>
                     <input class="form-control <?php echo form_error('nama') ? 'is-invalid':'' ?>"
-                        type="text" autocomplete="off" name="nama" placeholder="Nama Lengkap" />
+                        type="text" autocomplete="off" name="nama" placeholder="Your Name is..." />
                     <div class="invalid-feedback">
                         <?php echo form_error('nama') ?>
                     </div>
@@ -93,14 +93,14 @@
                 <div class="form-group">
                     <label for="password">Password</label>
                     <input class="form-control <?php echo form_error('password') ? 'is-invalid':'' ?>"
-                    type="password" name="password" placeholder="Password" />
+                    type="password" name="password" placeholder="Don't tell anyone your Password!" />
                     <div class="invalid-feedback">
                         <?php echo form_error('password') ?>
                     </div>
                 </div>
 
                 <div class="form-group mt-3">
-                <label for="tingkat">Tingkat</label>
+                <label for="tingkat">Degree</label>
                     <select class="form-control" id="tingkat" name="tingkat">
                     <option selected value="">Choose...</option>
                     <option value="D3">D3</option>
@@ -109,18 +109,18 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="jurusan">Jurusan</label>
+                    <label for="jurusan">Majors</label>
                     <input class="form-control <?php echo form_error('jurusan') ? 'is-invalid':'' ?>"
-                        type="text" autocomplete="off" name="jurusan" placeholder="Jurusan" />
+                        type="text" autocomplete="off" name="jurusan" placeholder="Your Majors is.." />
                     <div class="invalid-feedback">
                         <?php echo form_error('jurusan') ?>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="masuk">Tahun Masuk</label>
+                    <label for="masuk">Batch of</label>
                     <input class="form-control <?php echo form_error('masuk') ? 'is-invalid':'' ?>"
-                        type="text" autocomplete="off" name="masuk" placeholder="Tahun Masuk" />
+                        type="text" autocomplete="off" name="masuk" placeholder="Batch of..." />
                     <div class="invalid-feedback">
                         <?php echo form_error('masuk') ?>
                     </div>

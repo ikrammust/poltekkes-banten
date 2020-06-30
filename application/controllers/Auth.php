@@ -76,13 +76,13 @@ class Auth extends CI_Controller {
         public function regist() {
 
             $this->form_validation->set_rules('nip', 'NIP', 'trim|required|min_length[5]|is_unique[dosen.nip]', [
-                'is_unique' => "NIM sudah di gunakan!",
-                'min_length' => "Bener ini NIM kamu?",
+                'is_unique' => "NIM is already in use!",
+                'min_length' => "Is this really your NIM?",
             ]);
 
             $this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[5]|max_length[16]', [
-                'min_length' => "Password terlalu pendek",
-                'max_length' => "Password terlalu panjang",
+                'min_length' => "Password too short",
+                'max_length' => "Password too long",
             ]);
     
             if($this->form_validation->run() == false) {
@@ -121,7 +121,7 @@ class Auth extends CI_Controller {
 
                 $this->db->insert('dosen', $data);
                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
-                    Registrasi Berhasil!
+                    Registration Successful!
                     </div>');
                 redirect('auth');
             }
@@ -130,7 +130,7 @@ class Auth extends CI_Controller {
         public function forgot() {
 
             $this->form_validation->set_rules('nip', 'NIP', 'trim|required', [
-                'required' => "Field harus di isi",
+                'required' => "This field can't be blank",
             ]);
 
             $this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[5]|max_length[16]', [
@@ -139,9 +139,9 @@ class Auth extends CI_Controller {
             ]);
   
             $this->form_validation->set_rules('passwordr', 'Repeat Password', 'trim|required|min_length[5]|max_length[16]|matches[password]', [
-                'matches' => "Password tidak sesuai",
-                'min_length' => "Password terlalu pendek",
-                'max_length' => "Password terlalu panjang",
+                'matches' => "Passwords doesn't match",
+                'min_length' => "Password too short",
+                'max_length' => "Password too long",
             ]);
             
             if ($this->form_validation->run() == false) {
@@ -160,7 +160,7 @@ class Auth extends CI_Controller {
                 $this->db->update('dosen', $data);
 
                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
-                Password Berhasil di ubah!
+                Password successfully changed!
                 </div>');
                 redirect('auth');
             }

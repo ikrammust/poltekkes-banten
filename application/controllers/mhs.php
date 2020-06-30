@@ -15,7 +15,7 @@ class mhs extends CI_Controller {
         $data['dosen'] = $this->db->get_where('dosen', ['nip' => $this->session->userdata('nip')] )->row_array();
         if($this->session->has_userdata('nip')) {
             $data['dada'] = $this->rdsn->get_data();
-            $data['title'] = "Dosen";
+            $data['title'] = "Lecturer Data";
             $this->load->view('auth/mhs1', $data);
         }
     }
@@ -27,28 +27,28 @@ class mhs extends CI_Controller {
 
 
         $this->form_validation->set_rules('nip', 'NIP', 'required|trim|is_unique[dosen.nip]', [
-            'required' => "NIP harus di isi",
-            'is_unique' => "NIP sudah digunakan!"
+            'required' => "NIP must be filled in",
+            'is_unique' => "NIP is already in use!"
         ]);
 
         $this->form_validation->set_rules('nama', 'NAMA', 'required', [
-            'required' => "Kamu ga punya nama?",
+            'required' => "You don't have a name?",
         ]);
 
         $this->form_validation->set_rules('password', 'PASSWORD', 'required|trim', [
-            'required' => "Password harus di isi",
+            'required' => "The password must be filled in",
         ]);
 
         $this->form_validation->set_rules('telp', 'TELP', 'required', [
-            'required' => "Kalau ga di isi, aku WA kamu gimana?",
+            'required' => "If it's not loaded, what should I do?",
         ]);
 
         $this->form_validation->set_rules('alamat', 'ALAMAT', 'required', [
-            'required' => "Di isi dong, biar aku tau rumahmu",
+            'required' => "Please fill in, let me know your home",
         ]);
 
         $this->form_validation->set_rules('info', 'INFO', 'required', [
-            'required' => "Ceritain dong tentang kamu",
+            'required' => "Tell me about you",
         ]);
 
         $this->form_validation->set_rules('role_id', 'ROLE_ID', 'required', [
@@ -58,7 +58,7 @@ class mhs extends CI_Controller {
         
         if($this->form_validation->run() == false) {
     
-            $data['title'] = "Dosen";
+            $data['title'] = "Create User";
             $this->load->view('templates/header', $data);
             $this->load->view('templates/sidebar', $data);
             $this->load->view('admin/add');
@@ -117,7 +117,7 @@ class mhs extends CI_Controller {
             
             $this->db->insert('dosen', $data);
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
-                Selamat, ada dosen baru!
+                Congratulations, there is a new lecturer!
                 </div>');
             redirect('mhs');
 
@@ -131,7 +131,7 @@ class mhs extends CI_Controller {
 
         if($this->rdsn->delete($id)) {
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
-            Data Berhasil Di Hapus!
+            Data Successfully Erased!
             </div>');
             redirect(site_url('mhs'));
         }
@@ -147,7 +147,7 @@ class mhs extends CI_Controller {
         $data['user'] = $this->rdsn->edit_data($where,'dosen')->result_array();
         $data['nanu'] = $this->db->get_where('infodosen', ['nip' => $data['user'][0]['nip']])->row_array();
         
-        $data['title'] = "Dosen";
+        $data['title'] = "Edit User";
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('admin/edit', $data);
@@ -232,7 +232,7 @@ class mhs extends CI_Controller {
         
         $this->rdsn->update_data($where,$data,'dosen');
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
-        Data Berhasil Di Ubah!
+        Data Successfully Changed!
         </div>');
         redirect('mhs');
     }

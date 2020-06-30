@@ -21,7 +21,7 @@
   <div class="col-12">
   <div class="card">
   <div class="card-header text-center">
-    <h2>Form Penilaian Dosen</h2>
+    <h2>Scoring form</h2>
   </div>
       <!-- /.card-header -->
       <div class="card-body table-responsive p-0">

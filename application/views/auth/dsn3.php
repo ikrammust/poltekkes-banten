@@ -129,13 +129,13 @@
             <li class="nav-item">
               <a href="<?= base_url('mhs') ?>" class="nav-link <?php if($this->uri->segment(1)== "mhs" ){echo "active";} ?>">
               <i class="fas fa-user-tie"></i>
-                <p>Dosen</p>
+                <p>Lecturer</p>
               </a>
             </li>
             <li class="nav-item">
               <a href="<?= base_url('dsn') ?>" class="nav-link <?php if($this->uri->segment(1)== "dsn" ){echo "active";} ?>">
               <i class="fas fa-user-graduate"></i>
-                <p>Mahasiswa</p>
+                <p>Student</p>
               </a>
             </li>
           </ul>
@@ -264,7 +264,7 @@
             <a href="<?= base_url('dsn/add') ?>" class="btn btn-success"><i class="fas fa-plus"></i> Add New</a>
             </div>
             <div class="col offset-2">
-              <h3 class="ml-5">Data Mahasiswa</h3>
+              <h3 class="ml-5">Student Data</h3>
             </div>
             </div>
             <!-- /.card-header -->
@@ -273,12 +273,12 @@
             <thead>
             <tr>
                 <th scope="col" class="text-center">No.</th>
-                <th scope="col">Nama</th>
+                <th scope="col">Name</th>
                 <th scope="col" class="text-center">NIM</th>
-                <th scope="col" class="text-center">Tingkat</th>
-                <th scope="col" class="text-center">Jurusan</th>
-                <th scope="col" class="text-center">Tahun</th>
-                <th scope="col" class="text-center">Status Memilih</th>
+                <th scope="col" class="text-center">Degree</th>
+                <th scope="col" class="text-center">Majors</th>
+                <th scope="col" class="text-center">Batch of</th>
+                <th scope="col" class="text-center">Vote Status</th>
                 <th scope="col" class="text-center">Action</th>
             </tr>
             </thead>
@@ -292,26 +292,26 @@
                 <td class="text-center"><?= $row['tingkat']; ?></td>
                 <td class="text-center"><?= $row['jurusan']; ?></td>
                 <td class="text-center"><?= $row['masuk']; ?></td>
-                <td class="text-center"><input type="checkbox" <?php if($row['pilihan'] != 1) echo "checked"; else echo ""; ?> disabled>  <?php if($row['pilihan'] != 1) echo "Sudah"; else echo "Belum"; ?>  </td>
+                <td class="text-center"><input type="checkbox" <?php if($row['pilihan'] != 1) echo "checked"; else echo ""; ?> disabled>  <?php if($row['pilihan'] != 1) echo "Done"; else echo "Not yet"; ?>  </td>
                 <td class="text-center">
 
                 <a href="<?php echo base_url('dsn/cobaedit/'.$row['id']); ?>" 
                 class="btn btn-small text-primary" role="button"><i class="fas fa-edit"></i> Edit</a>
 
                 <a onclick="deleteConfirm('<?php echo site_url('dsn/delete/'.$row['id']) ?>')"
-                href="#!" class="btn btn-small text-danger"><i class="fas fa-trash-alt"></i> Hapus</a>
+                href="#!" class="btn btn-small text-danger"><i class="fas fa-trash-alt"></i> Delete</a>
                 </td>
             </tr>
             <?php endforeach ?>
             <tfoot>
             <tr>
                 <th scope="col" class="text-center">No.</th>
-                <th scope="col">Nama</th>
+                <th scope="col">Name</th>
                 <th scope="col" class="text-center">NIM</th>
-                <th scope="col" class="text-center">Tingkat</th>
-                <th scope="col" class="text-center">Jurusan</th>
-                <th scope="col" class="text-center">Tahun</th>
-                <th scope="col" class="text-center">Status Memilih</th>
+                <th scope="col" class="text-center">Degree</th>
+                <th scope="col" class="text-center">Majors</th>
+                <th scope="col" class="text-center">Batch of</th>
+                <th scope="col" class="text-center">Vote Status</th>
                 <th scope="col" class="text-center">Action</th>
             </tr>
             </tfoot>
@@ -326,7 +326,7 @@
                     <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body">Data yang dihapus tidak akan bisa dikembalikan.</div>
+                <div class="modal-body">Deleted data can't be restored.</div>
                 <div class="modal-footer">
                     <button class="btn btn-success" type="button" data-dismiss="modal">Cancel</button>
                     <a id="btn-delete" class="btn btn-danger" href="#">Delete</a>
